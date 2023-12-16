@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phone-shop-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phone-shop-app
+  template:
+    metadata:
+      labels:
+        app: phone-shop-app
+    spec:
+      containers:
+      - name: phone-shop-app
+        image: sirihate/phoneshop-app:latest
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: admin
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://postgres:5432/phone_shop_db
+        - name: SPRING_DATASOURCE_USERNAME
+          value: postgres
+        - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+          value: update
