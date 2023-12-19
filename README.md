@@ -9,8 +9,8 @@ This project is a practical implementation of the deployment of the [PhoneShopSe
 ```
 minikube start
 ```
-3) Open a command prompt in the folder with Kubernetes manifest files
-4) Enter the following commands at the command prompt to create a database in a Kubernetes cluster:
+2) Open a command prompt in the folder with Kubernetes manifest files
+3) Enter the following commands at the command prompt to create a database in a Kubernetes cluster:
 ```
 kubectl apply -f postgres-config.yaml
 kubectl apply -f postgres-storage.yaml
@@ -45,7 +45,7 @@ kubectl apply -f ingress.yaml
 ```
 minikube tunnel
 ```
-8) The program is ready to use and can accept HTTP requests
+7) The program is ready to use and can accept HTTP requests
 
 **HINT:** Login and password for authorization in the service is `admin`
 
