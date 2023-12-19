@@ -17,10 +17,14 @@ kubectl apply -f postgres-storage.yaml
 kubectl apply -f postgres-deployment.yaml
 kubectl apply -f postgres-service.yaml
 ```
-4) Create new table in DB:
+4) Create new table in database:
 ```
 kubectl exec -it <db-pod-name> -- /bin/sh
+```
+```
 psql -h <db-pod-name> -U postgres -d phone_shop_db
+```
+```
 CREATE TABLE phone_shop (
     id SERIAL PRIMARY KEY,
     manufacturer VARCHAR(255),
